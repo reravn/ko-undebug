@@ -1,7 +1,7 @@
 name: DDK Build Kernel Module
 
 on:
-  workflow_call:
+  workflow_dispatch:
     inputs:
       kmi:
         description: 'KMI version'
