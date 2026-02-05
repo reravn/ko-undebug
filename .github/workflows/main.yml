@@ -6,6 +6,7 @@ on:
       kmi:
         description: 'KMI version'
         required: true
+        default: android14-6.1
         type: string
       ddk_release:
         description: 'DDK release version'
