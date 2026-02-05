@@ -1,12 +1,10 @@
-KERNEL_PATH ?= /lib/modules/$(shell uname -r)/build
-
 obj-m += undebug.o
 
 all:
-	make -C $(KERNEL_PATH) M=$(PWD) modules
+	make -C $(KDIR) M=$(PWD) modules
 
 clean:
-	make -C $(KERNEL_PATH) M=$(PWD) clean
+	make -C $(KDIR) M=$(PWD) clean
 
 test: all
 	sudo insmod *ko
