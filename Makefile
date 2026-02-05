@@ -1,3 +1,4 @@
+CFLAGS = -std=c11
 obj-m += undebug.o
 
 all:
