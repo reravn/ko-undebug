@@ -1,8 +1,7 @@
-CFLAGS = -std=c11
 obj-m += undebug.o
 
 all:
-	make -C $(KDIR) M=$(PWD) modules
+	make -C $(KDIR) CFLAGS="-std=c11" M=$(PWD) modules
 
 clean:
 	make -C $(KDIR) M=$(PWD) clean
