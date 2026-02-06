@@ -220,7 +220,7 @@ int fh_install_hook(struct ftrace_hook *hook)
 	hook->ops.func = fh_ftrace_thunk;
 
 #ifdef CONFIG_ARM64
-	hook->ops.flags = FTRACE_OPS_FL_SAVE_REGS_IF_SUPPORTED | FTRACE_OPS_FL_RECURSION_SAFE | FTRACE_OPS_FL_IPMODIFY;
+	hook->ops.flags = FTRACE_OPS_FL_SAVE_REGS_IF_SUPPORTED | FTRACE_OPS_FL_RECURSION | FTRACE_OPS_FL_IPMODIFY;
 #else
 	hook->ops.flags = FTRACE_OPS_FL_SAVE_REGS | FTRACE_OPS_FL_RECURSION | FTRACE_OPS_FL_IPMODIFY;
 #endif
