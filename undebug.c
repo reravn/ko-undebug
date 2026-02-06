@@ -9,7 +9,7 @@
  */
 
 #define DEBUG
-
+#define CONFIG_FUNCTION_TRACER
 #include <linux/ftrace.h>
 #include <linux/kallsyms.h>
 #include <linux/kernel.h>
