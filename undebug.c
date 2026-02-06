@@ -112,10 +112,6 @@ static unsigned long lookup_name(const char *name)
 #endif
 
 #if LINUX_VERSION_CODE < KERNEL_VERSION(5, 11, 0)
-#define FTRACE_OPS_FL_RECURSION FTRACE_OPS_FL_RECURSION_SAFE
-#endif
-
-#if LINUX_VERSION_CODE < KERNEL_VERSION(5, 11, 0)
 #define ftrace_regs pt_regs
 
 static __always_inline struct pt_regs *ftrace_get_regs(struct ftrace_regs *fregs)
@@ -319,14 +315,6 @@ void fh_remove_hooks(struct ftrace_hook *hooks, size_t count)
 
 #if defined(CONFIG_X86_64) && (LINUX_VERSION_CODE >= KERNEL_VERSION(4, 17, 0))
 #define PTREGS_SYSCALL_STUBS 1
-#endif
-
-/*
- * Tail call optimization can interfere with recursion detection based on
- * return address on the stack. Disable it to avoid machine hangups.
- */
-#if !USE_FENTRY_OFFSET
-#pragma GCC optimize("-fno-optimize-sibling-calls")
 #endif
 
 static asmlinkage void (*orig_show_map_vma)(struct seq_file *m, struct vm_area_struct *vma);
