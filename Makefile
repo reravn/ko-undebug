@@ -1,14 +1,11 @@
 obj-m += undebug.o
-
-ccflags-y += -std=gnu11
+KDIR := $(KDIR)
+MDIR := $(realpath $(dir $(abspath $(lastword $(MAKEFILE_LIST)))))
+$(info -- KDIR: $(KDIR))
+$(info -- MDIR: $(MDIR))
 
 all:
-	make -C $(KDIR) M=$(PWD) modules
+	make -C $(KDIR) M=$(MDIR) modules
 
 clean:
-	make -C $(KDIR) M=$(PWD) clean
-
-test: all
-	sudo insmod *.ko
-	sudo dmesg | tail -n 20
-	sudo rmmod undebug
+	make -C $(KDIR) M=$(MDIR) clean
