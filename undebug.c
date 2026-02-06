@@ -26,7 +26,7 @@
 
 MODULE_DESCRIPTION("Hide TracerPid and VMA");
 MODULE_AUTHOR("tfoldi <tfoldi@nospam>");
-MODULE_LICENSE("GPL");
+// MODULE_LICENSE("GPL");
 
 #define HIDE_MAPS_MAX_LEN 4096
 #define MAX_ENTRIES 100
